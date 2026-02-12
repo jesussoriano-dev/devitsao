@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Full Stack · DSH-2502</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f6f9fc 0%, #edf2f9 100%);
+      font-family: 'Inter', sans-serif;
+      color: #102a43;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 32px;
+      box-shadow: 0 15px 35px -10px rgba(0,20,40,0.12);
+      padding: 1.8rem 2rem;
+      transition: transform 0.25s ease, box-shadow 0.35s;
+    }
+
+    .card:hover {
+      box-shadow: 0 25px 40px -12px rgba(16, 42, 67, 0.18);
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.9);
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.25rem;
+      color: #0b2b40;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      border-bottom: 4px solid #a0d6ff;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+      color: #164b63;
+    }
+
+    h2 i {
+      color: #2b6e94;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: #1e5266;
+      margin: 1rem 0 0.6rem;
+    }
+
+    .badge {
+      background: #d0e6f2;
+      color: #035c7c;
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(2,116,146,0.2);
+      display: inline-block;
+    }
+
+    .chip {
+      background: #eef7ff;
+      border-radius: 40px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1e5870;
+    }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      border-bottom: 1px dashed #cbdde8;
+      padding: 0.6rem 0;
+    }
+
+    .info-label {
+      width: 130px;
+      font-weight: 600;
+      color: #1a5b73;
+    }
+
+    .info-value {
+      flex: 1;
+      font-weight: 500;
+    }
+
+    ul, .list-styled {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    ul li, .list-item {
+      margin-bottom: 0.55rem;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    ul li i, .list-icon {
+      color: #0077b6;
+      font-size: 0.9rem;
+      width: 1.4rem;
+      text-align: center;
+      margin-top: 0.2rem;
+    }
+
+    .topic-block {
+      background: #ffffffd6;
+      border-radius: 24px;
+      padding: 1.5rem;
+      border-left: 6px solid #3a9bc2;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      height: 100%;
+    }
+
+    .competence-tag {
+      background: #dbf0fa;
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.98rem;
+    }
+
+    .btn-soft {
+      background: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: #005e80;
+      font-weight: 600;
+      border: 1px solid #cae0e9;
+      transition: 0.2s;
+    }
+
+    .btn-soft i {
+      margin-right: 5px;
+    }
+
+    .btn-soft:hover {
+      background: #cbe7f5;
+      border-color: #72b6d0;
+    }
+
+    hr {
+      margin: 1.5rem 0 1rem;
+      border: 1px solid #d3e2ed;
+      opacity: 0.6;
+    }
+
+    .footer-small {
+      font-size: 0.85rem;
+      color: #3a5e6e;
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .card { padding: 1.3rem; }
+      h1 { font-size: 1.8rem; }
+      .info-label { width: 100%; margin-bottom: 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="card" style="background: linear-gradient(105deg, #ffffff 0%, #f3faff 100%);">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <div>
+          <span class="badge"><i class="fas fa-code-branch" style="margin-right: 6px;"></i>Ingeniería Informática · SATCA 1-3-4</span>
+          <h1 style="margin-top: 0.7rem;"><i class="fas fa-layer-group" style="color: #0f6f94;"></i> Desarrollo Full Stack</h1>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 0.7rem 0 0.3rem;">
+            <span class="chip"><i class="far fa-keyboard"></i> DSH-2502</span>
+            <span class="chip"><i class="fas fa-calendar-alt"></i> Junio 2025 · ITS Osorio</span>
+            <span class="chip"><i class="fas fa-users"></i> 14 docentes</span>
+          </div>
+        </div>
+        <div style="font-size: 3rem; color: #8dc7db; opacity: 0.4;">
+          <i class="fas fa-crown"></i>
+        </div>
+      </div>
+      <div style="margin-top: 1.2rem; background: #e2f0f7; padding: 1.3rem 1.6rem; border-radius: 24px;">
+        <p style="font-size: 1.1rem; font-weight: 500; color: #035268;"><i class="fas fa-bolt" style="margin-right: 12px; color: #0072a3;"></i>Arquitectura completa: front‑end accesible + back‑end con patrones. Angular, Firebase, REST, CI/CD y control de versiones. </p>
+        <p style="margin-top: 0.5rem; color: #1f5468;">Diseñar, implementar y desplegar aplicaciones web escalables, responsivas y mantenibles. </p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2><i class="fas fa-bullseye"></i> Competencia específica</h2>
+        <div style="background: #e1f0fa; padding: 1.2rem; border-radius: 18px;">
+          <p style="font-weight: 550; line-height: 1.5;">Diseñar e implementar interfaces web accesibles, responsivas y usables con HTML5, CSS3, Bootstrap, Angular, además de <strong>patrones de diseño back‑end</strong> (Singleton, Factory, Adapter, Observer, State…) para arquitecturas sólidas y escalables.</p>
+        </div>
+        <h3 style="margin-top: 1.8rem;"><i class="fas fa-backward-step"></i> Competencias previas</h3>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> POO + funcional: clases, herencia, encapsulamiento</li>
+          <li><i class="fas fa-check-circle"></i> Diagramas UML (clases / secuencia)</li>
+          <li><i class="fas fa-check-circle"></i> Algoritmos, arreglos, listas, depuración</li>
+          <li><i class="fas fa-check-circle"></i> Bases HTML, CSS, JS y modelo cliente‑servidor</li>
+          <li><i class="fas fa-check-circle"></i> CRUD básico en BD relacionales / no relacionales</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-chalkboard-user"></i> Diseño curricular</h2>
+        <div class="info-row"><span class="info-label"><i class="fas fa-map-pin"></i> Lugar/fecha</span><span class="info-value">Instituto Tecnológico Superior de Osorio, Junio 2025</span></div>
+        <div class="info-row"><span class="info-label"><i class="fas fa-user-tie"></i> Participantes</span><span class="info-value">Dr. Julio C. Rojas, M.S.C. Mauro Romano, M.S.C. Ana Laura Nieto, M.C.C.T. Miguel Fuentes, M.C.C.T. Eloy Martínez, M.C.C. Keila Cortés, M.I.A. Nayely Reyes, M.I.A. Salvador Aguilar, L.I. Cristian Rojas, L.I. Filemón Cariño, L.I. Antonio Reyes, L.I. Patricia Bravo, L.I. Luis F. Duran.</span></div>
+        <div class="info-row"><span class="info-label"><i class="fas fa-clipboard"></i> Observación</span><span class="info-value">Reunión para análisis y diseño curricular — especialidad en tecnologías avanzadas, Ing. Informática.</span></div>
+        <div style="margin-top: 1.4rem; background: #f6fbff; border-radius: 18px; padding: 1rem;">
+          <span style="font-weight: 700;"><i class="fas fa-graduation-cap"></i>  Intención didáctica</span>
+          <p style="margin-top: 0.4rem; font-size: 0.98rem;">Comprender y aplicar de forma integral herramientas, patrones y prácticas (front/back, control de versiones, CI/CD) para construir y mantener aplicaciones web completas, escalables y accesibles.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-sitemap"></i> Temario · 4 ejes</h2>
+      <div class="grid-3" style="margin-top: 0.6rem;">
+        <div class="topic-block">
+          <div style="font-size: 2rem; margin-bottom: 6px;"></div>
+          <h3 style="margin-top: 0;">1. Fundamentos Full Stack</h3>
+          <p style="font-size: 0.9rem; color: #0c4b63; margin-bottom: 0.6rem;">Front-End / Back-End, cliente-servidor, hosting, Node.js, NPM, Git, GitHub Actions, CI/CD.</p>
+          <span class="btn-soft"><i class="fas fa-diagram-project"></i> Arquitectura capas + control versiones</span>
+        </div>
+        <div class="topic-block">
+          <div style="font-size: 2rem; margin-bottom: 6px;"></div>
+          <h3 style="margin-top: 0;">2. Interfaces accesibles</h3>
+          <p style="font-size: 0.9rem; color: #0c4b63;">HTML5 semántico, CSS3, media queries, Bootstrap/Tailwind, WCAG, diseño responsivo.</p>
+          <span class="btn-soft"><i class="fas fa-universal-access"></i> Auditoría Lighthouse / WAVE</span>
+        </div>
+        <div class="topic-block">
+          <div style="font-size: 2rem; margin-bottom: 6px;"></div>
+          <h3 style="margin-top: 0;">3. Patrones Back-End</h3>
+          <p style="font-size: 0.9rem; color: #0c4b63;">Singleton, Factory, Adapter, Decorator, Composite, Observer, State. Conexión BD, máquina de estados.</p>
+          <span class="btn-soft"><i class="fas fa-puzzle-piece"></i> Creacionales / estructurales / comportamiento</span>
+        </div>
+        <div class="topic-block" style="border-left-color: #adcbe3;">
+          <div style="font-size: 2rem; margin-bottom: 6px;"></div>
+          <h3 style="margin-top: 0;">4. Front-End con Angular</h3>
+          <p style="font-size: 0.9rem; color: #0c4b63;">CLI, componentes, servicios, JSON, HTTP, async/await, Firebase, formularios reactivos, rutas, 404.</p>
+          <span class="btn-soft"><i class="fas fa-angular"></i> Angular + Firebase BaaS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2><i class="fas fa-flask"></i> Actividades clave</h2>
+        <ul>
+          <li><i class="fas fa-1"></i> Infografía front-end vs back-end vs full stack</li>
+          <li><i class="fas fa-2"></i> Diagrama cliente-servidor / OSI + hosting con GitHub Pages</li>
+          <li><i class="fas fa-3"></i> Instalación Node, NPM, Git, VSC; repo con ramas</li>
+          <li><i class="fas fa-4"></i> Página semántica + media queries; Bootstrap/Tailwind cards, navbar</li>
+          <li><i class="fas fa-5"></i> Patrones: Singleton conexión, Factory user, Adapter API, Decorator notas</li>
+          <li><i class="fas fa-6"></i> Observer notificaciones / State para orden</li>
+          <li><i class="fas fa-7"></i> Angular: 3 componentes + servicio, HTTP (GET,POST,PUT,DELETE)</li>
+          <li><i class="fas fa-8"></i> Formulario reactivo con validaciones, ruteo dinámico, Firebase Auth</li>
+        </ul>
+        <div style="margin-top: 1rem; background: #e3f0fa; border-radius: 14px; padding: 0.8rem 1rem;">
+          <span><i class="fas fa-microchip"></i> <strong>Prácticas (11 en total):</strong> factory method, adapter, decorator, angular cli, jsonplaceholder, reactive forms, menú mobile, accesibilidad ARIA, etc.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-rocket"></i> Proyecto de asignatura</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+          <div style="display: flex; gap: 0.7rem;"><span style="background: #256075; color: white; padding: 0.2rem 0.8rem; border-radius: 30px; font-weight: 600; font-size: 0.75rem;">FASE 1</span><span><strong>Fundamentación</strong> — marco teórico, diagnóstico, comprensión de la realidad</span></div>
+          <div style="display: flex; gap: 0.7rem;"><span style="background: #32849e; color: white; padding: 0.2rem 0.8rem; border-radius: 30px; font-weight: 600; font-size: 0.75rem;">FASE 2</span><span><strong>Planeación</strong> — diseño del proyecto, actividades, cronograma</span></div>
+          <div style="display: flex; gap: 0.7rem;"><span style="background: #3fa3c2; color: white; padding: 0.2rem 0.8rem; border-radius: 30px; font-weight: 600; font-size: 0.75rem;">FASE 3</span><span><strong>Ejecución</strong> — desarrollo / intervención, construcción del modelo</span></div>
+          <div style="display: flex; gap: 0.7rem;"><span style="background: #68b9d6; color: white; padding: 0.2rem 0.8rem; border-radius: 30px; font-weight: 600; font-size: 0.75rem;">FASE 4</span><span><strong>Evaluación</strong> — mejora continua, metacognición, pensamiento crítico</span></div>
+        </div>
+        <hr>
+        <p style="font-weight: 600;"><i class="fas fa-trophy"></i> Proyecto integrador (competencias específicas + genéricas)</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2><i class="fas fa-clipboard-list"></i> Evaluación por competencias</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-bottom: 1.4rem;">
+          <span class="chip"><i class="fas fa-code"></i> Prácticas con herramientas</span>
+          <span class="chip"><i class="fas fa-pen"></i> Examen escrito</span>
+          <span class="chip"><i class="fas fa-diagram-project"></i> Proyecto integrador</span>
+          <span class="chip"><i class="fas fa-microphone-alt"></i> Eventos académicos / congresos</span>
+          <span class="chip"><i class="fas fa-search"></i> Investigación documental</span>
+          <span class="chip"><i class="fas fa-cubes"></i> Rúbricas + herramientas desarrollo</span>
+        </div>
+        <p class="btn-soft" style="display: inline-block;"><i class="fas fa-chart-line"></i> Auditoría continua, rúbricas y uso de tecnologías</p>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-book"></i> Fuentes de información</h2>
+        <ul style="margin-top: 0.2rem;">
+          <li><i class="fas fa-bookmark"></i> Duckett, J. (2022/2021). JavaScript & jQuery · Diseño web con HTML y CSS.</li>
+          <li><i class="fas fa-bookmark"></i> Clements, D.M. (2020). Node.js – Apps web con JavaScript en servidor.</li>
+          <li><i class="fas fa-bookmark"></i> López, J. (2021). APIs RESTful – Diseño y desarrollo. Marcombo.</li>
+          <li><i class="fas fa-bookmark"></i> Azaustre, C. (2022). Desarrollador Full Stack: guía completa.</li>
+          <li><i class="fas fa-bookmark"></i> Escobar, J. (2023). Full Stack con JavaScript: HTML, CSS, JS, React, Node, MongoDB.</li>
+        </ul>
+        <div style="margin-top: 0.8rem; background: #edf4f8; padding: 0.7rem; border-radius: 14px;">
+          <i class="fas fa-link"></i> Énfasis en Node.js, patrones, Angular, Firebase y REST
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="background: #e6f2fa; border: 1px solid rgba(255,255,255,0.7);">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 600;"><i class="fas fa-address-card"></i> DSH-2502 · Desarrollo Full Stack · SATCA 1-3-4</span>
+        <span style="font-size: 0.9rem; background: white; padding: 0.4rem 1rem; border-radius: 40px;">
+          <i class="fas fa-git-alt"></i> CI/CD · Angular · Patrones · WCAG
+        </span>
+      </div>
+      <div class="footer-small" style="margin-top: 0.8rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <span>Diseño curricular: Dr. Rojas, M.S.C. Romano, M.S.C. Nieto, M.C.C.T. Fuentes, M.C.C.T. Martínez y equipo académico.</span>
+        <span><i class="far fa-calendar-check"></i> Osorio, Junio 2025</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
