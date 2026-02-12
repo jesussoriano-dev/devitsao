@@ -216,6 +216,69 @@
             border-left: 2px solid #b31b1b;
         }
 
+        /* Estilos para el botón de materia */
+        .materia-section {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .btn-materia {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #b31b1b, #8a1515);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 18px rgba(179, 27, 27, 0.3);
+            transition: all 0.25s ease;
+            border-bottom: none;
+            gap: 10px;
+        }
+        
+        .btn-materia:hover {
+            background: linear-gradient(145deg, #8a1515, #6b1010);
+            box-shadow: 0 10px 22px rgba(179, 27, 27, 0.45);
+            transform: translateY(-3px);
+            color: white;
+            border-bottom: none;
+        }
+        
+        .btn-materia i {
+            font-size: 1.2rem;
+        }
+        
+        .btn-materia span {
+            border-left: 1px solid rgba(255,255,255,0.4);
+            padding-left: 10px;
+            margin-left: 5px;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        /* Flecha decorativa */
+        .materia-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .arrow-decoration {
+            color: #b31b1b;
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+
     </style>
 </head>
 <body>
@@ -319,12 +382,18 @@
         <p>GitHub: <a href="#">github.com/tuusuario</a> · <span style="color: #b31b1b; font-weight: 600;">Jesús Soriano</span></p>
     </footer>
 
+    <div class="materia-section">
+        <a href="https://jesussoriano-dev.github.io/devitsao/info_materia.html" 
+           class="btn-materia" 
+           target="_blank" 
+           title="Ver información completa de la materia">
+            VER FICHA DE LA MATERIA 
+            <span>DSH-2502</span>
+            
+        </a>
+    </div>
 
 </main>
-
-
-</body>
-</html>
 
 </body>
 </html>
