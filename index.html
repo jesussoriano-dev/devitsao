@@ -3,72 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículum - Jesús Soriano Martinez</title>
+    <title>Currículum · Jesús Soriano Martinez</title>
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
+
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #1e1e1e;
+            line-height: 1.5;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            padding: 45px 50px;
+            position: relative;
+            border-top: 6px solid #b31b1b;
         }
+
         h1 {
-            margin-bottom: 5px;
-            color: #2c3e50;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+            color: #000000;
+            line-height: 1.2;
         }
-        h2 {
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 8px;
-            margin-top: 30px;
-            color: #34495e;
-        }
-        h3 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        p {
-            line-height: 1.6;
-        }
-        ul {
-            margin-left: 20px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 5px;
-        }
+
         .subtitle {
-            font-weight: bold;
-            color: #555;
-            font-size: 1.1em;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #b31b1b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(179, 27, 27, 0.25);
+            padding-bottom: 15px;
         }
-        .project {
-            margin-bottom: 25px;
-            padding-left: 10px;
-            border-left: 3px solid #3498db;
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000000;
+            border-bottom: 3px solid #b31b1b;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
         }
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            font-size: 0.9em;
-            color: #666;
-            border-top: 1px solid #e0e0e0;
-            text-align: center;
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e1e1e;
+            margin-bottom: 6px;
         }
+
         a {
-            color: #3498db;
+            color: #b31b1b;
             text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
         }
+
         a:hover {
-            text-decoration: underline;
+            color: #7a0f0f;
+            border-bottom: 1px solid #7a0f0f;
         }
+
+        .project {
+            margin-bottom: 30px;
+            padding: 18px 22px;
+            background-color: #fcfcfc;
+            border-left: 6px solid #b31b1b;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s ease, background 0.2s;
+        }
+
+        .project:hover {
+            background-color: #ffffff;
+            box-shadow: 0 8px 18px rgba(179, 27, 27, 0.08);
+        }
+
+        .project p {
+            margin-bottom: 8px;
+        }
+
+        .project strong {
+            color: #b31b1b;
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 26px;
+            position: relative;
+            color: #2a2a2a;
+            font-weight: 400;
+        }
+
+        li::before {
+            content: "▹";
+            color: #b31b1b;
+            font-weight: 700;
+            position: absolute;
+            left: 6px;
+        }
+
+        section ul li strong {
+            color: #b31b1b;
+        }
+
+        section p {
+            font-size: 1.05rem;
+            color: #222;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #3d3d3d;
+        }
+
+        .footer p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .footer a {
+            font-weight: 700;
+        }
+
+        section:last-of-type p {
+            background: #f9f2f2;
+            padding: 16px 22px;
+            border-radius: 0px;
+            border-left: 4px solid #b31b1b;
+            color: #1e1e1e;
+            font-weight: 450;
+        }
+
+        .availability {
+            display: inline-block;
+            background-color: #b31b1b;
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-left: 12px;
+            vertical-align: middle;
+        }
+
+        header {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 30px 25px;
+            }
+            h1 {
+                font-size: 2.1rem;
+            }
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #1e1e1e;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-bottom: 5px;
+            border-left: 2px solid #b31b1b;
+        }
+
     </style>
 </head>
 <body>
@@ -77,7 +224,7 @@
 
     <header>
         <h1>Jesús Soriano Martinez</h1>
-        <p class="subtitle">Ingeniero en Informática | Desarrollador de Software</p>
+        <p class="subtitle">Ingeniero en Informática · Desarrollador de Software</p>
     </header>
 
     <section>
@@ -113,6 +260,7 @@
                 <li>Manejo de eventos y estados</li>
                 <li>Optimización del código para mantenimiento y escalabilidad</li>
             </ul>
+
         </article>
 
         <article class="project">
@@ -133,6 +281,17 @@
             <li><strong>Bases de Datos:</strong> MySQL</li>
             <li><strong>Herramientas:</strong> Visual Studio, Visual Studio Code, Godot, phpMyAdmin, Git, GitHub, Enterprise Architect</li>
         </ul>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">GDScript</span>
+            <span class="tech-tag">HTML5/CSS3</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Git/GitHub</span>
+        </div>
     </section>
 
     <section>
@@ -153,11 +312,19 @@
     </section>
 
     <footer class="footer">
-        <p>Disponible para residencia profesional</p>
-        <p>GitHub: <a href="#">github.com/tuusuario</a></p>
+        <p style="display: flex; align-items: center;">
+            <span style="background: #b31b1b; width: 10px; height: 10px; display: inline-block; margin-right: 12px; border-radius: 2px;"></span>
+            Disponible para residencia profesional
+        </p>
+        <p>GitHub: <a href="#">github.com/tuusuario</a> · <span style="color: #b31b1b; font-weight: 600;">Jesús Soriano</span></p>
     </footer>
 
+
 </main>
+
+
+</body>
+</html>
 
 </body>
 </html>
